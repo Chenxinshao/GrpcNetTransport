@@ -1,0 +1,2 @@
+# GrpcNetTransport
+在不支持http2平台中，让gRPC通过Scoket进行网络传输
