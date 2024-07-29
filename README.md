@@ -1,5 +1,5 @@
 # GrpcNetTransport
-在不支持http2平台中，让gRPC通过Scoket进行网络传输
+在不支持http2平台中，让gRPC通过Socket进行网络传输
 
 # 感谢 RedpointGames 
 该库修改自 [uet](https://github.com/RedpointGames/uet.git)下 :
