@@ -1,0 +1,42 @@
+﻿syntax = "proto3";
+
+package GrpcNet.Transport.Impl;
+
+message GrpcMetadataValue {
+    oneof value {
+        string string = 1;
+        bytes bytes = 2;
+    }
+}
+
+message GrpcMetadata {
+    map<string, GrpcMetadataValue> values = 1;
+}
+
+enum GrpcMessageType {
+    Unknown = 0;
+    RequestData = 1;
+    RequestComplete = 2;
+    RequestCancel = 3;
+    ResponseHeaders = 4;
+    ResponseData = 5;
+    ResponseComplete = 6;
+}
+
+message GrpcMessage {
+    GrpcMessageType type = 1;
+}
+
+message GrpcRequest {
+    string fullName = 1;
+    bool hasRequestHeaders = 2;
+    GrpcMetadata requestHeaders = 3;
+    int64 deadlineUnixTimeMilliseconds = 4;
+}
+
+message GrpcResponseComplete {
+    int32 statusCode = 1;
+    string statusDetails = 2;
+    bool hasResponseTrailers = 3;
+    GrpcMetadata responseTrailers = 4;
+}
